@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 # Custom
+gem 'devise'
 gem 'responders'
 gem 'simple_form'
 gem 'figaro'
