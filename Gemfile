@@ -14,7 +14,7 @@ gem 'simple_form'
 gem 'figaro'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'browser'
-gem 'geoip'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug', platform: :mri
