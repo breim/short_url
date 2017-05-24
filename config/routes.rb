@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'links/index'
+
+  get 'links/show'
+
 	root 'pages#index'
 
 	devise_for :users
