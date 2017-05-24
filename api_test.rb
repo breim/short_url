@@ -3,8 +3,8 @@ require 'json'
 
 # Create a user and generate credentials
 headers = { 
-	"key" => "b2635890c8",
-	"pwd" => "0a2f0000",
+	"key" => "4694e7df32",
+	"pwd" => "e4b7b7e482",
 	'Content-Type' => 'multipart/form-data'
 }
 
