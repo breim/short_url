@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 	root 'pages#index'
+	get '/:token' => 'links#show'
 	devise_for :users
 	resources :links, only: :index
 	resources :credentials, only: %i(index update)
