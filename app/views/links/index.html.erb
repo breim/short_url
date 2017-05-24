@@ -1,5 +1,13 @@
 <div class='container'>
 	<%= render 'partials/disabled_account' %>
+
+	<div class="row">
+		<legend>Last 7 days</legend>
+		<div class="col-sm-12">
+			<%= line_chart Tracking.joins(:link).where(links: {user_id: current_user.id}, created_at: 7.days.ago..Time.now).group_by_day('trackings.created_at', format: "%a %d/%m/%y").count %>
+		</div>
+	</div>
+
 	<legend>Links</legend>
 	<div class='table-responsive'>          
 		<table class="table">

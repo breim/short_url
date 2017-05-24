@@ -13,6 +13,8 @@ gem 'responders'
 gem 'simple_form'
 gem 'figaro'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'chartkick'
+gem 'groupdate'
 
 group :development, :test do
   gem 'byebug', platform: :mri
