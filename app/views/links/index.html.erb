@@ -10,7 +10,7 @@
 					<th>Original Url</th>
 					<th>Short Url</th>
 					<th>Created at</th>
-					<th> </th>
+					<th>Clicks</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,7 +21,7 @@
 					<td><%= link.original_url %></td>
 					<td><%= link.short_url %></td>
 					<td><%= link.created_at %></td>
-					<td>Info</td>
+					<td><%= link.trackings_count %></td>
 				</tr>
 			<% end %>
 			</tbody>
