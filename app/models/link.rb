@@ -1,4 +1,6 @@
 class Link < ApplicationRecord
+	has_many :trackings, dependent: :destroy
+
 	before_create :build_token
 	before_create :build_short_url
 
