@@ -1,2 +1,28 @@
-<h1>Links#index</h1>
-<p>Find me in app/views/links/index.html.erb</p>
+<div class='container'>
+	<div class='table-responsive'>          
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Token</th>
+					<th>Original Url</th>
+					<th>Short Url</th>
+					<th>Created at</th>
+					<th> </th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @links.each do |link| %>
+				<tr>
+					<td><%= link.id %></td>
+					<td><%= link.token %></td>
+					<td><%= link.original_url %></td>
+					<td><%= link.short_url %></td>
+					<td><%= link.created_at %></td>
+					<td>Info</td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
