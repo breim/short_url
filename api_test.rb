@@ -12,12 +12,12 @@ puts "============= Initializing tests ============="
 
 # Retrivel all links of your user
 puts "\n === [GET] - Index links ==="
-@links = HTTParty.get("http://dev.com:3000/api/links", headers: headers)
+@links = HTTParty.get("http://localhost:3000/api/links", headers: headers)
 puts @links
 
 # Create link 
 puts "\n === [POST] - Link get all ==="
-@link = HTTParty.post('http://dev.com:3000/api/links', :query => {
+@link = HTTParty.post('http://localhost:3000/api/links', :query => {
 	link: { 
 		original_url: 'http://google.com/'
 	}},
@@ -28,13 +28,13 @@ parse_token = JSON.parse(@link.body)['token']
 # Show link
 puts "\n === [GET] - Link Show ==="
 id = parse_token
-@link = HTTParty.get("http://dev.com:3000/api/links/#{id}", headers: headers)
+@link = HTTParty.get("http://localhost:3000/api/links/#{id}", headers: headers)
 puts @link.body
 
 # Update link
 puts "\n === [GET] - Link Update ==="
 id = parse_token
-@link = HTTParty.patch("http://dev.com:3000/api/links/#{id}", :query => {
+@link = HTTParty.patch("http://localhost:3000/api/links/#{id}", :query => {
 	link: { 
 		original_url: 'http://gmail.com/'
 	}},
@@ -44,5 +44,5 @@ puts @link.body
 # Delete link
 puts "\n === [DELETE] - Link Destoy ==="
 id = parse_token
-@link = HTTParty.delete("http://dev.com:3000/api/links/#{id}", headers: headers)
+@link = HTTParty.delete("http://localhost:3000/api/links/#{id}", headers: headers)
 puts @link.body
