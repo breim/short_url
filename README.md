@@ -34,7 +34,7 @@ rake db:migrate && rake db:migrate
 
 Update user to use api
 
-```
+```ruby
 $ rails console
 User.last.update(disabled: false)
 ```
@@ -43,7 +43,7 @@ User.last.update(disabled: false)
 
 Required libs to test endpoint and credential
 
-```json
+```ruby
 require 'HTTParty'
 require 'json'
 
@@ -61,7 +61,7 @@ HTTParty.get("http://localhost:3000/api/links", headers: headers)
 ```
 return
 
-```json
+```ruby
 {"id"=>48, "original_url"=>"http://google.com/", "short_url"=>"http://urlcurta.com/324cce", "token"=>"324cce", "created_at"=>"2017-05-23T23:22:33.347Z"}
 ```
 
