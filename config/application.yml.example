@@ -2,3 +2,4 @@ development:
   SITE_DOMAIN: 'https://shor_url.com'
   SHORT_URL_DATABASE_USER: 'dbuser'
   SHORT_URL_DATABASE_PASSWORD: 'dbpass'
+  SECRET_KEY: 'dhdhdhdsahdshdashdsahdshdsahdsa'
