@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
 	namespace :api do
 		resources :links, only: %i(index show create update destroy)
+    resources :trackins, only: :show
 	end
 end
