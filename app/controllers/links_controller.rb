@@ -1,6 +1,6 @@
 # app/controllers/links_controllers
 class LinksController < ApplicationController
-  before_action %w(authenticate_user! fill_page).map(&:to_sym), only: :index
+  before_action :authenticate_user!, :fill_page, only: :index
   before_action :create_tracking, only: :show
 
   respond_to :html
