@@ -4,7 +4,8 @@ class CredentialsController < ApplicationController
   respond_to :html
 
   def index
-    current_user.update(key: SecureRandom.hex(5), pwd: SecureRandom.hex(5)) if current_user.empty_key?
+    current_user.update(key: SecureRandom.hex(5),
+                        pwd: SecureRandom.hex(5)) if current_user.empty_key?
   end
 
   def update
