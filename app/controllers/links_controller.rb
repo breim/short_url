@@ -19,5 +19,4 @@ private
     @link = Link.find_by(token: params[:token])
     Tracking.create(link_id: @link.try(:id), referer: request.referrer, browser: request.user_agent, ip: request.remote_ip, ip_data: Tracking.get_ip_data(request.remote_ip))
   end
-  
 end
