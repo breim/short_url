@@ -1,3 +1,4 @@
+# app/controllers/api/trackings_controller
 class Api::TrackingsController < Api::ApiController
   def show
     @link = Link.find_by_token(params[:id])

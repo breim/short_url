@@ -1,0 +1,6 @@
+AllCops:
+  Exclude:
+    - db/**/**
+    - api_test.rb
+Metrics/LineLength:
+  Max: 100
