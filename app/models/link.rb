@@ -4,6 +4,8 @@ class Link < ApplicationRecord
 
   before_create :build_token, :build_short_url
 
+  acts_as_xlsx
+  
   def build_token
     self.token = SecureRandom.hex(3)
   end
