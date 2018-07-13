@@ -3,8 +3,6 @@ class Link < ApplicationRecord
   has_many :trackings, dependent: :destroy
 
   before_create :build_token, :build_short_url
-
-  acts_as_xlsx
   
   def build_token
     self.token = SecureRandom.hex(3)

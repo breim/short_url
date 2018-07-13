@@ -2,7 +2,17 @@
 	<%= render 'partials/disabled_account' %>
 
 	<div class="row">
-		<legend>Last 7 days</legend>
+			<div class="col col-lg-2">
+				<h3>Last 7 days</h3>
+			</div>
+			<div class="col col-lg-8"></div>
+			<div class="col col-lg-2">
+				<%= link_to "<button class='btn-download'> <i class='fa fa-download'></i> Download </button>".html_safe, '#' %>
+			</div>
+		</div>
+		<hr>
+
+	<div class="row">
 		<div class="col-sm-12">
 			<%= line_chart Tracking.joins(:link).where(links: {user_id: current_user.id}, created_at: 7.days.ago..Time.now).group_by_day('trackings.created_at', format: "%a %d/%m/%y").count %>
 		</div>
@@ -45,3 +55,5 @@
 	<% next_params = {page: (params[:page].to_i+1)}.update({q: params[:q]}) %>
 	<%= link_to "Next", links_url(next_params), class: 'btn btn-large btn-primary' %>
 </p>
+
+<%= stylesheet_link_tag 'download' %>

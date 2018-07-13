@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'acts_as_xlsx'
+gem 'axlsx'
 gem 'rails', '~> 5.0.2'
 gem 'pg', '~> 0.18'
 gem 'sass-rails', '~> 5.0'
