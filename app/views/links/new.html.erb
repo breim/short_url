@@ -1,0 +1,9 @@
+<h1> Encurte sua Url</h1>
+
+<%= form_for Link.new, method: :post do |f| %>
+  <div class="form-group">
+    <%= f.label :original_url %>
+    <%= f.text_field :original_url, class: 'form-control' %>
+  </div>
+  <%= f.submit 'Create Short Link', class: 'btn btn-info' %>
+<% end %>

@@ -12,12 +12,27 @@ class LinksController < ApplicationController
     respond_with(@links)
   end
 
+  def create
+    @link = Link.new(link_params)
+    byebug
+    @link.user_id = current_user.id
+    if @link.save
+      redirect_to links_path
+    else
+      render :new
+    end
+  end
+
   def show
     redirect_to @link.original_url && return unless @link.nil?
     render html: nil, status: :ok if @link.nil?
   end
 
   private
+
+  def link_params
+    params.require(:link).permit(:original_url)
+  end
 
   def fill_page
     params[:page] = 1 unless params[:page].present?

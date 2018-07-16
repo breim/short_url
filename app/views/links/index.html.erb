@@ -1,41 +1,40 @@
-<div class='container'>
-	<%= render 'partials/disabled_account' %>
+<%= render 'partials/disabled_account' %>
 
-	<div class="row">
-		<legend>Last 7 days</legend>
-		<div class="col-sm-12">
-			<%= line_chart Tracking.query_tracking(current_user) %>
-		</div>
-	</div>
-
-	<legend>Links</legend>
-	<div class='table-responsive'>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Token</th>
-					<th>Original Url</th>
-					<th>Short Url</th>
-					<th>Created at</th>
-					<th>Clicks</th>
-				</tr>
-			</thead>
-			<tbody>
-			<% @links.each do |link| %>
-				<tr>
-					<td><%= link.id %></td>
-					<td><%= link.token %></td>
-					<td><%= link.original_url %></td>
-					<td><%= link.short_url %></td>
-					<td><%= link.created_at %></td>
-					<td><%= link.trackings_count %></td>
-				</tr>
-			<% end %>
-			</tbody>
-		</table>
+<div class="row">
+	<legend>Last 7 days</legend>
+	<div class="col-sm-12">
+		<%= line_chart Tracking.query_tracking(current_user) %>
 	</div>
 </div>
+
+<legend>Links</legend>
+<div class='table-responsive'>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Token</th>
+				<th>Original Url</th>
+				<th>Short Url</th>
+				<th>Created at</th>
+				<th>Clicks</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @links.each do |link| %>
+			<tr>
+				<td><%= link.id %></td>
+				<td><%= link.token %></td>
+				<td><%= link.original_url %></td>
+				<td><%= link.short_url %></td>
+				<td><%= link.created_at %></td>
+				<td><%= link.trackings_count %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>
+
 
 <p class="text-center">
 	<% if params[:page].to_i > 1 %>
