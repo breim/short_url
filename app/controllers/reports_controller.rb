@@ -1,5 +1,5 @@
 # app/controllers/report_controller.rb
-class ReportController < ApplicationController
+class ReportsController < ApplicationController
   before_action :authenticate_user!
 
   respond_to :html
@@ -12,12 +12,12 @@ class ReportController < ApplicationController
   private
 
   def get_clicks_by_filter(link, filter)
-    Tracking.where(created_at >= filter.days.ago).count
+    Tracking.where(created_at >= filter.split(' ')[0].days.ago).count
   end
 
   def create_report(filter)
     Axlsx::Package.new do |p|
-      p.workbook.add_worksheet(name: 'Report from links in the last ' + filter + ' days') do |sheet|
+      p.workbook.add_worksheet(name: 'Report in the last ' + filter + ' days') do |sheet|
         sheet.add_row ['Original url', 'Short url', 'Clicks']
         @links.each do |link|
           sheet.add_row [link.original_url, link.short_url, get_clicks_by_filter(link, filter)]
