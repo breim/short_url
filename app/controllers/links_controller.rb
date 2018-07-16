@@ -15,7 +15,6 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
-    byebug
     @link.user_id = current_user.id
     if @link.save
       redirect_to links_path
