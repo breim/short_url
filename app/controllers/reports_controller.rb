@@ -1,4 +1,4 @@
-# app/controllers/report_controller.rb
+# app/controllers/reports_controller.rb
 class ReportsController < ApplicationController
   before_action :authenticate_user!
 
@@ -11,8 +11,8 @@ class ReportsController < ApplicationController
 
   private
 
-  def get_clicks_by_filter(link, filter)
-    Tracking.where("created_at >= ?",  filter.to_i.days.ago).count
+  def get_clicks_by_filter(link_id, filter)
+    Tracking.where('link_id = ? AND created_at >= ?', link_id, filter.to_i.days.ago).count
   end
 
   def create_report(filter)
@@ -20,11 +20,10 @@ class ReportsController < ApplicationController
       p.workbook.add_worksheet(name: 'Report in the last ' + filter) do |sheet|
         sheet.add_row ['Original url', 'Short url', 'Clicks']
         @links.each do |link|
-          sheet.add_row [link.original_url, link.short_url, get_clicks_by_filter(link, filter)]
+          sheet.add_row [link.original_url, link.short_url, get_clicks_by_filter(link.id, filter)]
         end
       end
-      send_data (p.to_stream.read), type: "application/xlsx", filename: "report.xlsx"
-      # p.serialize('report.xlsx')
+      send_data p.to_stream.read, type: 'application/xlsx', filename: 'report.xlsx'
     end
   end
 end

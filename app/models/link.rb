@@ -3,7 +3,7 @@ class Link < ApplicationRecord
   has_many :trackings, dependent: :destroy
 
   before_create :build_token, :build_short_url
-  
+
   def build_token
     self.token = SecureRandom.hex(3)
   end
