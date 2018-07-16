@@ -1,0 +1,10 @@
+<h1> Shorten your Url</h1>
+<hr>
+<%= form_for Link.new, method: :post do |f| %>
+  <div class="form-group">
+    <%= f.label :original_url %>
+    <%= f.text_field :original_url, class: 'form-control', aria: { describedby: 'urlHelp'} %>
+    <small id="urlHelp" class="form-text text-muted">Make sure to validate the url address before this action.</small>
+  </div>
+  <%= f.submit 'Create Short Link', class: 'btn btn-info' %>
+<% end %>
