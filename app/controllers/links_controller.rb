@@ -24,8 +24,7 @@ class LinksController < ApplicationController
   end
 
   def show
-    redirect_to @link.original_url && return unless @link.nil?
-    render html: nil, status: :ok if @link.nil?
+    unless @link.nil?; redirect_to @link.original_url; else render html: nil, status: :ok; end
   end
 
   private
