@@ -20,6 +20,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rubocop', '~> 0.39.0'
   gem 'rspec-rails', '~> 3.7'
+  gem "factory_bot"
 end
 
 group :development do
