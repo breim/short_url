@@ -19,6 +19,7 @@ gem 'groupdate'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rubocop', '~> 0.39.0'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
