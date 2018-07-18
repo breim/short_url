@@ -24,15 +24,19 @@ class Api::LinksController < Api::ApiController
   end
 
   def destroy
-    if @link.present?
-      @link.delete
-      render json: { msg: 'deleted' }
-    else
-      render json: { msg: 'link not found' }, status: 404
-    end
+    send('destroy_' + @link.present?.to_s)
   end
 
   private
+
+  def destroy_true
+    @link.delete
+    render json: { msg: 'deleted' }
+  end
+
+  def destroy_false
+    render json: { msg: 'link not found' }, status: 404
+  end
 
   def set_link
     @link = Link.find_by_token_and_user_id(params[:id], @user.id)
