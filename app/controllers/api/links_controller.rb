@@ -1,6 +1,6 @@
 # app/controllers/api/links_controller
 class Api::LinksController < Api::ApiController
-  before_action :set_link, only: [:show, :update, :destroy]
+  before_action :set_link, only: %i(show update destroy)
 
   def index
     @links = Link.where(user_id: @user.id).order(created_at: :desc)

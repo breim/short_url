@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :links
+
   def update_with_password(params = {})
     if params[:password].blank?
       params.delete(:password)

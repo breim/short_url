@@ -1,6 +1,7 @@
 # app/models/link
 class Link < ApplicationRecord
   has_many :trackings, dependent: :destroy
+  belongs_to :user
 
   before_create :build_token, :build_short_url
 
