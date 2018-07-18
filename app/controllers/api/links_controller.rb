@@ -24,8 +24,12 @@ class Api::LinksController < Api::ApiController
   end
 
   def destroy
-    @link.delete
-    render json: { msg: 'deleted' }
+    if @link.present?
+      @link.delete
+      render json: { msg: 'deleted' }
+    else
+      render json: { msg: 'link not found' }, status: 404
+    end
   end
 
   private
