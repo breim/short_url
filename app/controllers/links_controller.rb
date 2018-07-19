@@ -1,7 +1,7 @@
 # app/controllers/links_controllers
 class LinksController < ApplicationController
-  before_action :authenticate_user!, :fill_page, only: %i(index)
-  before_action :authenticate_user!, only: %i(create)
+  before_action :authenticate_user!, only: %i(index create new)
+  before_action :fill_page, only: %i(index)
   before_action :create_tracking, only: :show
 
   respond_to :html
@@ -24,10 +24,18 @@ class LinksController < ApplicationController
   end
 
   def show
-    unless @link.nil?; redirect_to @link.original_url; else render html: nil, status: :ok; end
+    send('redirect_link_' + @link.present?.to_s)
   end
 
   private
+
+  def redirect_link_true
+    redirect_to @link.original_url
+  end
+
+  def redirect_link_false
+    render html: nil, status: :ok
+  end
 
   def link_params
     params.require(:link).permit(:original_url)
