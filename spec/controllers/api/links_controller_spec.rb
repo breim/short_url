@@ -79,6 +79,16 @@ RSpec.describe Api::LinksController, type: :controller do
       end
     end
 
+    context 'diferent user try access to links' do
+      it 'response body returned has a null string' do
+        header_auth(user.key, user.pwd)
+        sign_in user
+        get :show, params: { id: link.id }
+        expect(response.body).to eq('null')
+        expect(response.status).to eq(200)
+      end
+    end
+
     context 'with user logged in app and get a link' do
       it 'return object and status request http 200' do
         header_auth(link.user.key, link.user.pwd)

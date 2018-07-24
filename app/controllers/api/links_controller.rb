@@ -31,7 +31,7 @@ class Api::LinksController < Api::ApiController
 
   def destroy_true
     @link.delete
-    render json: { msg: 'deleted' }
+    render json: { msg: 'deleted' }, status: 200
   end
 
   def destroy_false

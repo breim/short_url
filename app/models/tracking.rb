@@ -15,4 +15,10 @@ class Tracking < ApplicationRecord
     res = JSON.parse Net::HTTP.get(uri)
     res
   end
+
+  def self.create_tracking(link, request)
+    create(link_id: link.try(:id), referer: request.referer,
+           browser: request.browser, ip: request.ip,
+           ip_data: get_ip_data(request.ip))
+  end
 end

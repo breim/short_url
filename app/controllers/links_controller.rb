@@ -1,7 +1,7 @@
 # app/controllers/links_controllers
 class LinksController < ApplicationController
   before_action :authenticate_user!, only: %i(index create new)
-  before_action :fill_page, only: %i(index)
+  before_action :fill_page, only: :index
   before_action :create_tracking, only: :show
 
   respond_to :html
@@ -47,8 +47,6 @@ class LinksController < ApplicationController
 
   def create_tracking
     @link = Link.find_by(token: params[:token])
-    Tracking.create(link_id: @link.try(:id), referer: request.referrer,
-                    browser: request.user_agent, ip: request.remote_ip,
-                    ip_data: Tracking.get_ip_data(request.remote_ip))
+    Tracking.create_tracking(@link, request)
   end
 end
