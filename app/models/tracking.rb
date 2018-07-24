@@ -18,7 +18,7 @@ class Tracking < ApplicationRecord
 
   def self.create_tracking(link, request)
     create(link_id: link.try(:id), referer: request.referer,
-           browser: request.browser, ip: request.ip,
+           browser: request.user_agent, ip: request.ip,
            ip_data: get_ip_data(request.ip))
   end
 end
