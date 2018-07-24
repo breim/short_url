@@ -1,6 +1,6 @@
 # app/controllers/api/links_controller
 class Api::LinksController < Api::ApiController
-  before_action :set_link, only: [:show, :update, :destroy]
+  before_action :set_link, only: %i(show update destroy)
 
   def index
     @links = Link.where(user_id: @user.id).order(created_at: :desc)
@@ -24,11 +24,19 @@ class Api::LinksController < Api::ApiController
   end
 
   def destroy
-    @link.delete
-    render json: { msg: 'deleted' }
+    send('destroy_' + @link.present?.to_s)
   end
 
   private
+
+  def destroy_true
+    @link.delete
+    render json: { msg: 'deleted' }, status: 200
+  end
+
+  def destroy_false
+    render json: { msg: 'link not found' }, status: 404
+  end
 
   def set_link
     @link = Link.find_by_token_and_user_id(params[:id], @user.id)

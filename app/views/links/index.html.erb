@@ -38,8 +38,8 @@
 
 <p class="text-center">
 	<% if params[:page].to_i > 1 %>
-	<% back_params = {page: (params[:page].to_i-1)}.update({q: params[:q]}) %>
-	<%= link_to "Back", links_url(back_params), class: 'btn btn-large btn-primary' %>
+		<% back_params = {page: (params[:page].to_i-1)}.update({q: params[:q]}) %>
+		<%= link_to "Back", links_url(back_params), class: 'btn btn-large btn-primary' %>
 	<% end %>
 	<% next_params = {page: (params[:page].to_i+1)}.update({q: params[:q]}) %>
 	<%= link_to "Next", links_url(next_params), class: 'btn btn-large btn-primary' %>
