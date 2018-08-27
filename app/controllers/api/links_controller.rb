@@ -43,7 +43,7 @@ class Api::LinksController < Api::ApiController
   end
 
   def link_params
-    params.permit(:original_url)
+    params.require(:link).permit(:original_url)
   end
 
   def json_fields
