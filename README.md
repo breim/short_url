@@ -1,8 +1,10 @@
+
 # Short Url
 
 By [Chiligumvideos](http://chiligumvideos.com/)
 
 Is a small app to gerenate short url via authenticated api.
+[You can use this gem(urli_me) together](https://github.com/chiligumdev/urli_me)
 
 ## Instalation
 
