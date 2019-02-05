@@ -12,8 +12,9 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><%= link_to "Links", links_path %></li>
+        <li><%= link_to 'New Short Url', new_link_path %></li>
         <li><%= link_to "Credentials", credentials_path %></li>
-        <li><%= link_to "Create account", new_user_registration_path %></li>
+        <%= link_create_account %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
