@@ -3,5 +3,7 @@ AllCops:
     - db/**/**
     - api_test.rb
     - spec/**/**
+    - config/**/**
+    - Gemfile
 Metrics/LineLength:
-  Max: 100
+  Max: 120

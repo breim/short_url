@@ -1,6 +1,6 @@
 # app/controllers/links_controllers
 class LinksController < ApplicationController
-  before_action :authenticate_user!, only: %i(index create new)
+  before_action :authenticate_user!, only: %i[index create new]
   before_action :fill_page, only: :index
   before_action :create_tracking, only: :show
 
