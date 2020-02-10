@@ -6,6 +6,8 @@ AllCops:
     - config/**/**
     - Gemfile
 Metrics/LineLength:
-  Max: 120
+  Max: 150
 Metrics/BlockLength:
   Max: 50
+Metrics/CyclomaticComplexity:
+  Max: 7
